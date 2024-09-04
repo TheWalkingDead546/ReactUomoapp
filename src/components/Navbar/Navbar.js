@@ -1,14 +1,21 @@
-import { click } from '@testing-library/user-event/dist/click';
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import Navlist from "./NavList/Navlist";
+import Navsublist from "./Navsublist/Navsublist";
+
 
 function Navbar() {
     const [click,setClick] = useState(false)
+    const [selectedButton , setSelectedButton] = useState("women")
 
     const handleClick = () => {
         setClick( (prevState) => !prevState )
     }
-  return (
+
+    const handleButtonChange = (buttonName) => {
+        setSelectedButton(buttonName)
+    }
+    return (
     <>
     <nav className='navbar'>
         <div className='navbar-container'>
@@ -18,29 +25,13 @@ function Navbar() {
             <div className='menu-icon' onClick={handleClick}>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
             </div>
-            {click ? (
-                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                    <li className='nav-item'>
-                        <Link to='/public' className='nav-links' onClick={handleClick}>
-                            Women
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/public' className='nav-links' onClick={handleClick}>
-                            Men
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/public' className='nav-links' onClick={handleClick}>
-                            Kids
-                        </Link>
-                    </li>
-                </ul>
-            ) : null}
+            <Navlist onButtonChange={handleButtonChange} click={click}/>
+            <img src="" alt=""/>
+            <Navsublist selectedButton={selectedButton} isActive={click} />
         </div>
     </nav>
     </>
-  )
+    )
 }
 
 export default Navbar;
