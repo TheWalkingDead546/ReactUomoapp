@@ -1,4 +1,5 @@
 import React from "react";
+import "../Navbar.css";
 
 export default function Navsublist({selectedButton , isActive}) {
     let menuList = [];
@@ -49,7 +50,7 @@ export default function Navsublist({selectedButton , isActive}) {
             {isActive ? (
                 <ul className={'nav-menu active'}>
                     {menuList.map((items , itemKey) => (
-                        <li key={itemKey}> {items}</li>
+                        <li className="dropdown-item" key={itemKey}> {items}</li>
                     ))}
                 </ul>
             ) : null}

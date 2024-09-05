@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import Navlist from "./NavList/Navlist";
 import Navsublist from "./Navsublist/Navsublist";
+import "./Navbar.css"
 
 
 function Navbar() {
@@ -17,19 +18,19 @@ function Navbar() {
     }
     return (
     <>
-    <nav className='navbar'>
-        <div className='navbar-container'>
-            <Link to="/public" className="navbar-logo">
+    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+        <div className='navbar-container container-fluid'>
+            <Link to="/public" className="navbar-logo navbar-brand">
                 UOM <i class="fa-solid fa-circle"></i>
             </Link>
             <div className='menu-icon' onClick={handleClick}>
-                <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
+                <i className={click ? 'fa-solid fa-grip-lines-vertical' : 'fa-solid fa-grip-lines'}/>
             </div>
-            <Navlist onButtonChange={handleButtonChange} click={click}/>
-            <img src="" alt=""/>
-            <Navsublist selectedButton={selectedButton} isActive={click} />
         </div>
     </nav>
+        <Navlist selectedButton={selectedButton} onButtonChange={handleButtonChange} click={click}/>
+        <img src="" alt=""/>
+        <Navsublist selectedButton={selectedButton} isActive={click} />
     </>
     )
 }
