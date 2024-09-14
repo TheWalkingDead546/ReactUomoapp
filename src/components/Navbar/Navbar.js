@@ -20,9 +20,9 @@ function Navbar() {
     <>
     <nav className='navbar navbar-expand-lg navbar-light bg-light'>
         <div className='navbar-container container-fluid'>
-            <Link to="/public" className="navbar-logo navbar-brand">
+            <div  className="navbar-logo navbar-brand">
                 UOM <i class="fa-solid fa-circle"></i>
-            </Link>
+            </div>
             <div className='menu-icon' onClick={handleClick}>
                 <i className={click ? 'fa-solid fa-grip-lines-vertical' : 'fa-solid fa-grip-lines'}/>
             </div>
