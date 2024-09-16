@@ -5,13 +5,14 @@ import './App.css'
 import Hero from "./components/Hero/Hero";
 import ProductContainer from "./components/ProductContainer/ProductContainer";
 import TopCategory from "./components/TopCategory/TopCategory";
-
+import TopCollection from "./components/TopCollection/TopCollection";
 function App() {
   return (
     <>
         <Navbar />
         <Hero />
         <TopCategory />
+        <TopCollection />
     </>
   )
 }
